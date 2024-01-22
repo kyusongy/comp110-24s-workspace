@@ -26,14 +26,10 @@ if player_guess > 4:
     print(f"Error! {player_guess} too high!")
     exit()
 
-
-
-
 if player_choice == player_guess:
     result = RED_BOX
 else:
     result = WHITE_BOX
-
 
 if player_guess == 1:
     storage = result + BLUE_BOX + BLUE_BOX + BLUE_BOX
@@ -50,4 +46,3 @@ if player_choice == player_guess:
 else:
     print(storage)
     print("Incorrect! You missed the ship.")
-    
