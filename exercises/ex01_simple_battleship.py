@@ -50,3 +50,4 @@ if player_choice == player_guess:
 else:
     print(storage)
     print("Incorrect! You missed the ship.")
+    
