@@ -17,7 +17,7 @@ if player_choice > 4:
     print(f"Error! {player_choice} too high!")
     exit()
 
-player_guess_input: str = input("Pick a secret boat location between 1 and 4:")
+player_guess_input: str = input("Guess a number between 1 and 4:")
 player_guess: int = int(player_guess_input)
 if player_guess < 1:
     print(f"Error! {player_guess} too low!")
