@@ -1,9 +1,12 @@
-"""EX03"""
+"""EX03."""
 __author__: str = "730720425"
+
 
 import random
 
+
 def input_guess(grid_size: int, specification: str) -> int:
+    """Input guess."""
     GRID_SIZE = grid_size
     assert specification == "row" or specification == "column"
     if specification == "row":
@@ -16,8 +19,10 @@ def input_guess(grid_size: int, specification: str) -> int:
         while guess_column > GRID_SIZE or guess_column <= 0:
             guess_column = int(input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: "))
         return guess_column
-    
+
+
 def print_grid(grid_size: int, guess_row: int, guess_column: int, t_f: bool) -> None:
+    """Print grid."""
     BLUE_BOX: str = "\U0001F7E6"
     RED_BOX: str = "\U0001F7E5"
     WHITE_BOX: str = "\U00002B1C"
@@ -44,13 +49,17 @@ def print_grid(grid_size: int, guess_row: int, guess_column: int, t_f: bool) -> 
         print(storage)
         row_counter = row_counter + 1
 
-def correct_guess(secret_row: int, secret_column: int, guess_row: int, guess_column:int) -> bool:
+
+def correct_guess(secret_row: int, secret_column: int, guess_row: int, guess_column: int) -> bool:
+    """Determine true or false."""
     if secret_row == guess_row and secret_column == guess_column:
         return True
     else:
         return False
-    
+
+
 def main(grid_size: int, secret_row: int, secret_column: int) -> None:
+    """All together."""
     turns: int = 1
     while turns <= 5:
         print(f"=== Turn {turns}/5 ===")
@@ -68,6 +77,7 @@ def main(grid_size: int, secret_row: int, secret_column: int) -> None:
     if turns == 6:
         print("X/5 - Better luck next time!")
 
+
 if __name__ == "__main__":
-        grid_size: int = random.randint(3, 5)
-        main(grid_size, random.randint(1, grid_size), random.randint(1, grid_size))
+    grid_size: int = random.randint(3, 5)
+    main(grid_size, random.randint(1, grid_size), random.randint(1, grid_size))
