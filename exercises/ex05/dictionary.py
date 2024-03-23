@@ -23,7 +23,7 @@ def favorite_color(inp_dict: dict[str, str]) -> str:
     """Returns a str which is the color that appears most frequently."""
     list_of_colors: list[str] = []
     color_count: dict[str, int] = {}
-    fave_color: str = ""
+    fave_color: list[str] = []
     count_list: list[int] = []
     for keys in inp_dict:
         list_of_colors.append(inp_dict[keys])
@@ -36,8 +36,8 @@ def favorite_color(inp_dict: dict[str, str]) -> str:
         count_list.append(color_count[colors])
     for colors in color_count:
         if color_count[colors] == max(count_list):
-            fave_color = colors
-            return fave_color
+            fave_color.append(colors)
+    return fave_color[0]
         
 
 def count(inp_list: list[str]) -> dict[str, int]:
@@ -65,7 +65,9 @@ def alphabetizer(inp_list: list[str]) -> dict[str, list[str]]:
 def update_attendance(inp_dict: dict[str, list[str]], day: str, student_attended: str) -> None:
     """Mutates and return that dictionary."""
     if day in inp_dict:
-        inp_dict[day].append(student_attended)
+        if student_attended in inp_dict[day]:
+            """Do nothing."""
+        else:
+            inp_dict[day].append(student_attended)
     else:
         inp_dict[day] = [student_attended]
-    return inp_dict

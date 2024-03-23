@@ -66,7 +66,7 @@ def test_count_edge() -> None:
 def test_alphabetizer_use1() -> None:
     """Alphabetizer use case 1."""
     test: list[str] = ["cat", "apple", "boy", "angry", "bad", "car"]
-    assert alphabetizer(test) =={ 'c': ['cat', 'car'], 'a': ['apple', 'angry'], 'b': ['boy', 'bad']}
+    assert alphabetizer(test) == {'c': ['cat', 'car'], 'a': ['apple', 'angry'], 'b': ['boy', 'bad']}
 
 
 def test_alphabetizer_use2() -> None:
@@ -83,22 +83,22 @@ def test_alphabetizer_edge() -> None:
 
 def test_update_attendance_use1() -> None:
     """Update attendance use case 1."""
-    test: dict[str,str] = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
-    update_attendance(test, "Tuesday" , "Vrinda")
-    update_attendance(test, "Wednesday" , "Kaleb")
+    test: dict[str, str] = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
+    update_attendance(test, "Tuesday", "Vrinda")
+    update_attendance(test, "Wednesday", "Kaleb")
     assert test == {'Monday': ['Vrinda', 'Kaleb'], 'Tuesday': ['Alyssa', 'Vrinda'], 'Wednesday': ['Kaleb']}
 
 
 def test_update_attendance_use2() -> None:
     """Update attendance use case 2."""
-    test: dict[str,str] = {"Monday": ["Vrinda", "Kyle", "Kaleb"], "Tuesday": ["Alyssa"]}
-    update_attendance(test, "Tuesday" , "Vrinda")
-    update_attendance(test, "Wednesday" , "Kyle")
+    test: dict[str, str] = {"Monday": ["Vrinda", "Kyle", "Kaleb"], "Tuesday": ["Alyssa"]}
+    update_attendance(test, "Tuesday", "Vrinda")
+    update_attendance(test, "Wednesday", "Kyle")
     assert test == {'Monday': ['Vrinda', 'Kyle', 'Kaleb'], 'Tuesday': ['Alyssa', 'Vrinda'], 'Wednesday': ['Kyle']}
 
 
 def test_update_attendance_edge() -> None:
     """Update attendance edge case (duplicate student)."""
-    test: dict[str,str] = {"Monday": ["Vrinda", "Kyle", "Kaleb"], "Tuesday": ["Alyssa"]}
-    update_attendance(test, "Monday" , "Kyle")
+    test: dict[str, str] = {"Monday": ["Vrinda", "Kyle", "Kaleb"], "Tuesday": ["Alyssa"]}
+    update_attendance(test, "Monday", "Kyle")
     assert test == {"Monday": ["Vrinda", "Kyle", "Kaleb"], "Tuesday": ["Alyssa"]}
